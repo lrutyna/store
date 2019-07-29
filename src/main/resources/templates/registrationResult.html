@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns="http://www.w3.org/1999/xhtml">
+		
+<head th:include="fragments/header :: head-source">
+    <title id="pageTitle">Rejestracja</title>
+</head>
+
+<body>
+	<div th:include="fragments/header :: navbar"></div>
+    
+   <div class="container p-4">
+    <h1 class="mt-5">Zarejestrowano użytkownika</h1>
+    <p th:text="'Login: ' + ${accountForm.login}" />
+    <a href="/">Powrót do strony głównej</a>
+   </div>
+  
+    <div th:insert="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/header :: head-source">
+    <title id="pageTitle">Edycja produktu</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<div th:include="fragments/header :: navbar"></div>
+
+<div class="container p-4">
+	<div class="row">
+	<div class="col-sm-6 offset-sm-3 text-center">
+    <form action="#" th:action="@{/admin-panel/edit-product}" th:object="${productForm}" method="post">
+    <fieldset>
+    	<h2 class="p-3">Edytuj produkt</h2>
+    	
+    	<div class="form-group">
+    		<input type="hidden" th:field="*{id}" class="form-control input-lg" 
+    		placeholder="Id" autofocus="autofocus"/><br/>
+    	</div>
+    	
+    	<div class="form-group">
+    		<input type="text" th:field="*{name}" class="form-control input-lg" 
+    		placeholder="Nazwa produktu" autofocus="autofocus"/><br/>
+    		<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: indianred;"> </p>
+    	</div>
+    	
+    	<div class="form-group">
+    		<input type="text" th:field="*{description}" class="form-control input-lg" 
+    		placeholder="Opis produktu" autofocus="autofocus"/><br/>
+    		<p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" style="color: indianred;"> </p>
+    	</div>
+
+    	<div class="form-group">
+    		<input type="text" value="" th:field="*{price}" class="form-control input-lg" 
+    		placeholder="Cena" autofocus="autofocus"/><br/>
+    		<p th:if="${#fields.hasErrors('price')}" th:errors="*{price}" style="color: indianred;"> </p>
+    	</div>
+    	
+    	<div class="form-group">
+    		<input type="text" th:field="*{quantityInStock}" class="form-control input-lg" 
+    		placeholder="Ilość" autofocus="autofocus" /><br/>
+    		<p th:if="${#fields.hasErrors('quantityInStock')}" th:errors="*{quantityInStock}" style="color: indianred;"> </p>
+    	</div>
+    	
+    	<div class="form-group">
+    		<select class="form-control" th:field="*{categoryId}">    
+				<option th:value="0" selected>Kategoria</option>
+    			<option th:each="item : ${categories}" th:text="${item.name}" th:value="${item.id}"/>
+			</select>
+    	</div>
+    	
+		<div class="row">
+            <div class="col-sm-6 offset-sm-3">
+               <input type="submit" class="btn btn-lg btn-primary btn-block" value="Edytuj produkt"/>
+            </div>
+        </div>
+       
+        
+    </fieldset>
+    </form>
+    </div>
+    </div>
+</div>
+
+<div th:insert="fragments/footer :: footer"></div>
+</body>
+</html>

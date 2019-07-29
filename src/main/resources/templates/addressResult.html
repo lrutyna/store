@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Dodano adres</h1>
+    <p th:text="'Ulica: ' + ${addressForm.street}" />
+    <p th:text="'Miasto: ' + ${addressForm.city}" />
+    <p th:text="'Kod pocztowy: ' + ${addressForm.code}" />
+    <a href="/customer">Powrót</a>
+</body>
+</html>

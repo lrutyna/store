@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edycja</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css"/>
+    
+</head>
+<body>
+
+<div class="container p-4">
+	<div class="row">
+	<div class="col-sm-6 offset-sm-3 text-center">
+    <form action="#" th:action="@{/edit-account}" th:object="${accountForm}" method="post">
+    <fieldset>
+    	<h2 class="p-3">Edycja konta użytkownika</h2>
+    	
+    	<div class="form-group">
+    		<input type="hidden" th:field="*{id}" class="form-control input-lg" 
+    		placeholder="Login" autofocus="autofocus"/><br/>
+    	</div>
+    	
+    	<div class="form-group">
+    		<input type="text" th:field="*{login}" class="form-control input-lg" 
+    		placeholder="Login" autofocus="autofocus"/><br/>
+    		<p th:if="${#fields.hasErrors('login')}" th:errors="*{login}" style="color: indianred;"> </p>
+    	</div>
+    	
+    	<div class="form-group">
+    		<input type="text" th:field="*{firstName}" class="form-control input-lg" 
+    		placeholder="Imię" autofocus="autofocus"/><br/>
+    		<p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color: indianred;"> </p>
+    	</div>
+
+    	<div class="form-group">
+    		<input type="text" th:field="*{lastName}" class="form-control input-lg" 
+    		placeholder="Nazwisko" autofocus="autofocus" /><br/>
+    		<p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color: indianred;"> </p>
+    	</div>
+        
+        <div class="form-group">
+    		<input type="text" th:field="*{email}" class="form-control input-lg" 
+    		placeholder="Email" autofocus="autofocus"/><br/>
+    		<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: indianred;"> </p>
+    	</div>
+    	
+		<div class="row">
+            <div class="col-sm-6 offset-sm-3">
+               <input type="submit" class="btn btn-lg btn-primary btn-block" value="Zapisz zmiany"/>
+            </div>
+        </div>
+    </fieldset>
+    </form>
+    </div>
+    </div>
+</div>
+</body>
+</html>

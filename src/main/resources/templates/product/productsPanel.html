@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/header :: head-source">
+    <title id="pageTitle">Produkty</title>
+</head>
+
+<body>
+<div th:include="fragments/header :: navbar"></div>
+
+<div class="container">
+<select id="productSelect" class="form-control" th:field="*{categories}" onchange="changeCategory(this.value)">    
+	<option value="" selected>Kategoria</option>
+    <option th:each="category : ${categories}"
+      th:value="${category.name}" th:text="${category.name}"/>
+</select>
+
+<table class="table" id="productsTable">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nazwa</th>
+      <th scope="col">Opis</th>
+      <th scope="col">Cena</th>
+      <th scope="col">Ilość</th>
+      <th scope="col">Edytuj</th>
+      <th scope="col">Usuń</th>
+    </tr>
+  </thead>
+  <tbody id="productsTableTbody">
+  </tbody>
+</table>
+</div>
+
+  <div th:insert="fragments/footer :: footer"></div>
+
+</body>
+</html>
